@@ -23,5 +23,16 @@ namespace H1_Dragracing
             }
         }
         #endregion
+
+        #region Constructors
+        public Racer()
+        {
+
+        }
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }

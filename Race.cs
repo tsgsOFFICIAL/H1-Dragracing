@@ -34,5 +34,16 @@ namespace H1_Dragracing
             }
         }
         #endregion
+
+        #region Constructors
+        public Race()
+        {
+
+        }
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }

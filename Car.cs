@@ -22,7 +22,10 @@ namespace H1_Dragracing
         #endregion
 
         #region Constructors
+        public Car()
+        {
 
+        }
         #endregion
 
         #region Methods
