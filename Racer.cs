@@ -4,29 +4,24 @@ using System.Text;
 
 namespace H1_Dragracing
 {
-    public class Car
+    public class Racer
     {
         #region Fields
+        private Car car;
 
         #endregion
 
         #region Properties
         /// <summary>
-        /// The type of engine
+        /// The racers Car object
         /// </summary>
-        public enum Engine
+        public Car Car
         {
-            Jondamotor,
-            Poyota
+            get
+            {
+                return car;
+            }
         }
-        #endregion
-
-        #region Constructors
-
-        #endregion
-
-        #region Methods
-
         #endregion
     }
 }
