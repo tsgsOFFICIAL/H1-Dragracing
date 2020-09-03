@@ -38,7 +38,7 @@ namespace H1_Dragracing
         #region Constructors
         public Race()
         {
-
+            racers = new List<Racer>();
         }
         #endregion
 

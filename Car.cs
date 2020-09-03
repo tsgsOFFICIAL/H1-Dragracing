@@ -7,7 +7,10 @@ namespace H1_Dragracing
     public class Car
     {
         #region Fields
+        private enum engine
+        {
 
+        }
         #endregion
 
         #region Properties
