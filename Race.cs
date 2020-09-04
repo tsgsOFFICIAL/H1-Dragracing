@@ -36,9 +36,21 @@ namespace H1_Dragracing
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// This initialises a new instance of the class Race, giving it a default distance of 400m if nothing else is specified!
+        /// </summary>
         public Race()
         {
             racers = new List<Racer>();
+            distance = 400;
+        }
+        /// <summary>
+        /// This initialises a new instance of the class Race, giving it a distance as specified in passed argument
+        /// </summary>
+        public Race(int distance)
+        {
+            racers = new List<Racer>();
+            this.distance = distance;
         }
         #endregion
 
