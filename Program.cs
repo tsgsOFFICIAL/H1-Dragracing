@@ -28,7 +28,15 @@ namespace H1_Dragracing
             ShowWindow(GetConsoleWindow(), MAXIMIZE);
 
             Race sundayRace = new Race();
-            
+            sundayRace.AddRacer("Kent", 42, 1, Racer.Faces.Happy, new Car(ConsoleColor.Green, Car.Engines.Jondamotor));
+            sundayRace.AddRacer("Marcus", 19, 2, Racer.Faces.Happy, new Car(ConsoleColor.Blue, Car.Engines.Jondamotor));
+            sundayRace.AddRacer("Ida", 27, 3, Racer.Faces.Happy, new Car(ConsoleColor.Magenta, Car.Engines.Jondamotor));
+
+            foreach (Racer racer in sundayRace.Racers)
+            {
+                DrawCar(racer.Car.Color, racer.Face, racer.Number, true);
+            }
+
             Console.ReadKey(true);
         }
 

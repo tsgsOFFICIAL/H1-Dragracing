@@ -69,9 +69,9 @@ namespace H1_Dragracing
         /// <param name="face">The facial expression of the racer</param>
         /// <param name="age">The age of the racer</param>
         /// <param name="car">The car the racer is driving</param>
-        public void AddRacer(string name, Racer.Faces face, byte age, Car car)
+        public void AddRacer(string name, byte age, byte number, Racer.Faces face, Car car)
         {
-            racers.Add(new Racer(name, face, age, car));
+            racers.Add(new Racer(name, age, number, face, car));
         }
         /// <summary>
         /// Remove a racer from the race

@@ -12,6 +12,7 @@ namespace H1_Dragracing
         private string name;
         private string face;
         private byte age;
+        private byte number;
         private Car car;
 
         #endregion
@@ -45,6 +46,16 @@ namespace H1_Dragracing
             get
             {
                 return age;
+            }
+        }
+        /// <summary>
+        /// The racers number
+        /// </summary>
+        public byte Number
+        {
+            get
+            {
+                return number;
             }
         }
         /// <summary>
@@ -90,7 +101,7 @@ namespace H1_Dragracing
         /// <param name="face">What facial expression does the racer have?</param>
         /// <param name="age">How old is the racer?</param>
         /// <param name="car">What car does the racer drive?</param>
-        public Racer(string name, Faces face, byte age, Car car)
+        public Racer(string name, byte age, byte number, Faces face, Car car)
         {
             trackTimer = new Stopwatch();
             this.name = name;
@@ -98,6 +109,7 @@ namespace H1_Dragracing
             ChangeFacialExpression(face);
 
             this.age = age;
+            this.number = number;
             this.car = car;
         }
         #endregion
