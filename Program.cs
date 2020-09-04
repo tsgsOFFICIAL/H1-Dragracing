@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -26,8 +27,8 @@ namespace H1_Dragracing
         {
             ShowWindow(GetConsoleWindow(), MAXIMIZE);
 
-            DrawCar(ConsoleColor.Red, "o_o", 99, true);
-            DrawCar(ConsoleColor.Green, "^_^", 15, true);
+            Race sundayRace = new Race();
+            
             Console.ReadKey(true);
         }
 

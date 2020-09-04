@@ -55,7 +55,39 @@ namespace H1_Dragracing
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Start the race
+        /// </summary>
+        public void Start()
+        {
 
+        }
+        /// <summary>
+        /// Add a racer to the race
+        /// </summary>
+        /// <param name="name">The name of the racer</param>
+        /// <param name="face">The facial expression of the racer</param>
+        /// <param name="age">The age of the racer</param>
+        /// <param name="car">The car the racer is driving</param>
+        public void AddRacer(string name, Racer.Faces face, byte age, Car car)
+        {
+            racers.Add(new Racer(name, face, age, car));
+        }
+        /// <summary>
+        /// Remove a racer from the race
+        /// </summary>
+        /// <param name="name">The racers name, CaSe SeNsItIvE</param>
+        public void RemoveRacer(string name)
+        {
+            foreach (Racer racer in racers)
+            {
+                if (racer.Name.Equals(name))
+                {
+                    racers.Remove(racer);
+                    return;
+                }
+            }
+        }
         #endregion
     }
 }

@@ -14,6 +14,26 @@ namespace H1_Dragracing
 
         #region Properties
         /// <summary>
+        /// The color of the car
+        /// </summary>
+        public ConsoleColor Color
+        {
+            get
+            {
+                return color;
+            }
+        }
+        /// <summary>
+        /// The engine of the car
+        /// </summary>
+        public Engine Engine
+        {
+            get
+            {
+                return engine;
+            }
+        }
+        /// <summary>
         /// The type of engine
         /// </summary>
         public enum Engines
@@ -32,6 +52,10 @@ namespace H1_Dragracing
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Change the eninge of the car
+        /// </summary>
+        /// <param name="engine">The type of engine to change to</param>
         public void ChangeEngine(Engines engine)
         {
             this.engine = new Engine(engine);
