@@ -25,19 +25,135 @@ namespace H1_Dragracing
         #endregion
         static void Main()
         {
-            ShowWindow(GetConsoleWindow(), MAXIMIZE);
+            Console.ForegroundColor = ConsoleColor.White;
+            ShowWindow(GetConsoleWindow(), MAXIMIZE); //Maximise the console
 
-            Race sundayRace = new Race();
-            sundayRace.AddRacer("Kent", 42, 1, Racer.Faces.Happy, new Car(ConsoleColor.Green, Car.Engines.Jondamotor));
-            sundayRace.AddRacer("Marcus", 19, 2, Racer.Faces.Happy, new Car(ConsoleColor.Blue, Car.Engines.Jondamotor));
-            sundayRace.AddRacer("Ida", 27, 3, Racer.Faces.Happy, new Car(ConsoleColor.Magenta, Car.Engines.Jondamotor));
+            Race sundayRace = new Race(); //Create and initialise a new Race
 
-            foreach (Racer racer in sundayRace.Racers)
+            while (AddRacers(sundayRace))
             {
-                DrawCar(racer.Car.Color, racer.Face, racer.Number, true);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+
+            if (sundayRace.Racers.Count > 0)
+            {
+                foreach (Racer racer in sundayRace.Racers)
+                {
+                    DrawCar(racer.Car.Color, racer.Face, racer.Number, true);
+                }
+            }
+            else
+            {
+                Console.WriteLine("You don't have any racers to compete...");
             }
 
             Console.ReadKey(true);
+        }
+
+        private static bool AddRacers(Race race)
+        {
+            string[] _faceNames = Enum.GetNames(typeof(Racer.Faces));
+            string[] _colors = Enum.GetNames(typeof(ConsoleColor));
+            string[] _faces = new string[] { "^_^", "~_~", "o_o", "*_*", "$_$", "o_O", "-_-" };
+            string name;
+            byte age;
+            byte number;
+            Racer.Faces face;
+            ConsoleColor color;
+            Car.Engines engine;
+
+            Console.Clear();
+
+            Console.WriteLine("Current racers: ");
+
+            if (race.Racers.Count > 0)
+            {
+                foreach (Racer racer in race.Racers)
+                {
+                    Console.WriteLine(racer.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine("none");
+            }
+
+            Console.WriteLine("\nAdd more? (Y/N)");
+
+            while (true)
+            {
+                switch (Convert.ToChar(Console.ReadKey(true).KeyChar.ToString().ToLower()))
+                {
+                    case 'y':
+                        Console.Write("\nRacer name: ");
+                        name = Console.ReadLine();
+
+                        Console.Write("\nRacer age: ");
+                        try
+                        {
+                            age = byte.Parse(Console.ReadLine());
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Not a valid age");
+                            Thread.Sleep(750);
+                            return true;
+                        }
+
+                        Console.Write("\nRacer number: ");
+                        try
+                        {
+                            number = byte.Parse(Console.ReadLine());
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Not a valid number");
+                            Thread.Sleep(750);
+                            return true;
+                        }
+
+                        Console.WriteLine("\nPick a face for your driver: ");
+                        int iterator = 0;
+                        foreach (int _faceIndex in Enum.GetValues(typeof(Racer.Faces)))
+                        {
+                            Console.WriteLine($"\n({_faceIndex}) {_faceNames[iterator],-8} {_faces[iterator],4}");
+                            iterator++;
+                        }
+
+                        switch (Console.ReadKey(true).KeyChar)
+                        {
+                            case '0':
+                                face = 0;
+                                Console.WriteLine(face);
+                                break;
+                            case '1':
+                                break;
+                            case '2':
+                                break;
+                            case '3':
+                                break;
+                            case '4':
+                                break;
+                            case '5':
+                                break;
+                            case '6':
+                                break;
+                        }
+
+                        iterator = 0;
+                        foreach (int index in Enum.GetValues(typeof(ConsoleColor)))
+                        {
+                            Console.ForegroundColor = (ConsoleColor)index;
+                            Console.WriteLine($"\n({index}) {_colors[iterator]}");
+                            iterator++;
+                        }
+                        Console.ReadKey(true);
+                        break;
+                    case 'n':
+                        return false;
+                }
+                return true;
+            }
         }
 
         /// <summary>
